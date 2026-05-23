@@ -1,0 +1,29 @@
+# Banco de Dados Físico do DuckDB
+*.db
+*.db.wal
+
+# Arquivos de Dados Locais (Não subir dados brutos/tratados para o GitHub)
+dados/landing/*
+dados/staging/*
+
+# Mas garante que o Git mantenha a estrutura de pastas vazia no repositório
+!dados/landing/.gitkeep
+!dados/staging/.gitkeep
+
+# Executáveis locais
+duckdb.exe
+
+# ==========================================
+# Arquivos e logs locais do Metabase
+# ==========================================
+metabase/metabase.db.*
+metabase/log/
+*.log
+
+# IGNORAR OS BINÁRIOS DO METABASE (Adicione estas linhas abaixo)
+metabase/metabase.jar
+metabase/plugins/duckdb.metabase-driver.jar
+
+# Arquivos do sistema operacional
+Thumbs.db
+.DS_Store
