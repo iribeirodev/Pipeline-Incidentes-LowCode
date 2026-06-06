@@ -1,0 +1,22 @@
+name: 'dbt_projeto' # Nome interno do projeto para o dbt
+version: '1.0.0'
+config-version: 2
+
+# Aponta para o perfil de conexão que configuramos no profiles.yml local
+profile: 'dbt_projeto'
+
+# Mapeamento de onde o dbt deve buscar ou salvar as pastas de trabalho
+model-paths: ["models"]           # Onde ficam as queries SQL de transformação
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configura como os modelos SQL serão salvos fisicamente no banco por padrão
+models:
+  dbt_projeto:
+    silver:
+      materialized: table         # Garante que a camada Silver crie tabelas físicas (e não views) no DuckDB

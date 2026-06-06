@@ -1,29 +1,43 @@
-# Banco de Dados Físico do DuckDB
+# ==========================================
+# Ambiente Virtual e Executáveis
+# ==========================================
+venv/
+duckdb.exe
+
+# ==========================================
+# Banco de Dados Físico e Dados Locais
+# ==========================================
 *.db
 *.db.wal
 
-# Arquivos de Dados Locais (Não subir dados brutos/tratados para o GitHub)
+# Ignora os arquivos de dados locais, mas preserva a estrutura de pastas
 dados/landing/*
 dados/staging/*
-
-# Mas garante que o Git mantenha a estrutura de pastas vazia no repositório
 !dados/landing/.gitkeep
 !dados/staging/.gitkeep
 
-# Executáveis locais
-duckdb.exe
+# ==========================================
+# Arquivos Específicos do dbt (Adicionado)
+# ==========================================
+# Ignora as pastas de compilação, logs e pacotes do dbt
+target/
+logs/
+dbt_packages/
 
 # ==========================================
 # Arquivos e logs locais do Metabase
 # ==========================================
+# Bloqueia os arquivos de banco internos do Metabase e logs
 metabase/metabase.db.*
 metabase/log/
 *.log
 
-# IGNORAR OS BINÁRIOS DO METABASE (Adicione estas linhas abaixo)
+# Ignora os binários e drivers do Metabase
 metabase/metabase.jar
 metabase/plugins/duckdb.metabase-driver.jar
 
-# Arquivos do sistema operacional
+# ==========================================
+# Arquivos do Sistema Operacional
+# ==========================================
 Thumbs.db
 .DS_Store

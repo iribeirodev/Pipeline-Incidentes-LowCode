@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase_incidentes
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mantém os dados de configuração do seu Metabase salvos localmente
+      - ./metabase:/metabase-data
+      # Permite que o Metabase enxergue o seu banco DuckDB dentro da pasta db
+      - ./db:/data/db
+    environment:
+      - MB_DB_FILE=/metabase-data/metabase.db
+    restart: always

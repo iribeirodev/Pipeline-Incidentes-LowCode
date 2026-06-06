@@ -1,0 +1,15 @@
+# Nome do perfil de conexão que liga este arquivo ao dbt_project.yml
+dbt_projeto:
+  outputs:
+    # Perfil de desenvolvimento (ambiente local)
+    dev:
+      type: duckdb                        # Define que o banco de dados usado é o DuckDB
+      path: db/projeto_incidentes.db      # Caminho relativo onde o arquivo do banco será lido/criado
+      threads: 4                          # Quantidade de processamento paralelo para executar as queries
+
+      extensions:
+        - spatial
+        
+  target: dev                             # Define 'dev' como o ambiente padrão de execução
+
+  

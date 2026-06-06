@@ -1,0 +1,9 @@
+version: 2
+
+# Declaração das fontes de dados externas (Camada Bronze / Raw)
+sources:
+  - name: bronze_layer            # Nome do grupo da camada que você chamará no SQL
+    tables:
+      - name: raw_incidentes      # Nome da "tabela virtual" que o dbt vai enxergar
+        meta:
+          external_location: "st_read('dados/landing/fake_incidents.xlsx', layer='Sheet1')"
